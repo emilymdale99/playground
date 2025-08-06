@@ -12,7 +12,7 @@ def process_data(pupil_data_path):
 
     # Filter out '2d c++' method data
     filtered_df = pupil_df[pupil_df["method"] != "2d c++"]
-    filtered_df = filtered_df[filtered_df["eye_id"] != 1]
+    filtered_df = filtered_df[filtered_df["id"] != 1]
     return pupil_df, filtered_df
 
 
@@ -54,15 +54,8 @@ def main(recording_path):
 
 if __name__ == "__main__":
     # Hardcoded default path
-    DEFAULT_RECORDING_PATH = r"C:\Users\jonma\recordings\2025_03_10\001\exports\000\pupil_positions.csv"
+    RECORDING_PATH = "/Users/emilydale/Downloads/2017_09_06-000coffee/exports/0-14302/pupil_positions.csv"
 
-    parser = argparse.ArgumentParser(description='Analyze pupil tracking data')
-    parser.add_argument(
-        'recording_path',
-        nargs='?',
-        default=DEFAULT_RECORDING_PATH,
-        help='Path to pupil_positions.csv file (default: %(default)s)'
-    )
-    args = parser.parse_args()
 
-    main(args.recording_path)
+
+    main(RECORDING_PATH)
